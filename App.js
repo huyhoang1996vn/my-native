@@ -14,7 +14,9 @@ export default function App() {
   ]);
 
   const clickHandler = () =>{
-    setData([...data, user]);
+    let last_id = Math.max(...data.map(o => o.id));
+    let new_user = {...user, id: last_id + 1};
+    setData([...data, new_user]);
     setUser({name: "", age:"", id: 0});
   }
 

@@ -5,11 +5,15 @@ export default function ListItem(props) {
             <FlatList style={styles.row}
             numColumns={1}
             data={props.data}
-            keyExtractor={(item)=>item.id}
-            renderItem={({item})=>
-            <TouchableOpacity onPress={()=>props.onPress(item.id)} >
-                <Text  style={styles.item}>Employee: {item.name} - {item.age}</Text>
-            </TouchableOpacity>}
+            keyExtractor={(item)=>{return item.id}}
+            renderItem={({item})=>{
+                return (
+                    <TouchableOpacity onPress={()=>props.onPress(item.id)} >
+                        <Text style={styles.item}>Employee: {item.name} - {item.age}</Text>
+                    </TouchableOpacity>
+                    )
+                }
+            }
         />
     )
 }
