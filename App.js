@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, Toucha
 import React, { useState } from 'react';
 import Header from './components/header';
 import ListItem from './components/listItems';
+import Additem from './components/addItem';
 
 
 export default function App() {
@@ -20,6 +21,15 @@ export default function App() {
     setUser({name: "", age:"", id: 0});
   }
 
+  const onChangeInput = (value, field) =>{
+    if( field == 'name'){
+      setUser({...user, name: value});
+    }
+    else if ( field == 'age'){
+      setUser({...user, age: value});
+    }
+  }
+
   const onPress = (id) =>{
     setData((prevState) =>prevState.filter(item=>item.id != id));
   }
@@ -27,21 +37,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header/>
-
       <View>
-        <Text style={styles.header}>List User</Text>
-        <TextInput 
-          style={styles.input} placeholder="Typing ..." onChangeText={(name)=>setUser({...user, name})}
-          defaultValue={user.name} />
-        <TextInput 
-          keyboardType='phone-pad' style={styles.input} placeholder="Typing ..." 
-          onChangeText={(age)=>setUser({...user, age})}
-          defaultValue={user.age}
-          />
-
-        <View style={{marginTop: 25, alignItems: 'center'}}>
-          <Button  title="Submit" onPress={clickHandler}/>
-        </View>
+        <Text style={{textAlign: "center", paddingTop: 20}}>Manage User</Text>
+        <Additem user={user} onChangeInput={onChangeInput} clickHandler={clickHandler}/>
         <ListItem data={data} onPress={onPress}/>
       </View>
     </View>
@@ -64,19 +62,4 @@ const styles = StyleSheet.create({
     color:'black',
     padding: 20,
   },
-  input:{
-    borderWidth: 0.5,
-    borderColor: '#777',
-    padding:8,
-    margin: 10,
-    width: 220,
-    alignSelf: 'center',
-  },
-  item:{
-    marginTop: 15,
-    padding: 25,
-    backgroundColor: 'pink',
-    marginBottom: 15,
-    marginHorizontal: 5
-  }
 });

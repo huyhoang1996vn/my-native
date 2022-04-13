@@ -9,7 +9,7 @@ export default function ListItem(props) {
             renderItem={({item})=>{
                 return (
                     <TouchableOpacity onPress={()=>props.onPress(item.id)} >
-                        <Text style={styles.item}>Employee: {item.name} - {item.age}</Text>
+                        <Text style={styles.item}>Name: {item.name} - Age: {item.age}</Text>
                     </TouchableOpacity>
                     )
                 }
