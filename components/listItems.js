@@ -21,7 +21,10 @@ export default function ListItem(props) {
 const styles = StyleSheet.create({
     item: {
         padding: 14,
-        backgroundColor: 'pink',
+        backgroundColor: '#fff',
+        borderColor: "gray", 
+        borderWidth: 1,
+        borderStyle: "dotted", 
         marginBottom: 15,
         textAlign: "center",
         borderRadius: 10,

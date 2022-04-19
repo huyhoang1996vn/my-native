@@ -13,7 +13,7 @@ export default function Additem(props) {
                 defaultValue={props.user.age}
             />
         <View style={{marginTop: 25, alignItems: 'center'}}>
-            <Button  title="Submit" onPress={props.clickHandler}/>
+            <Button  color="coral"  title="Submit" onPress={props.clickHandler}/>
         </View>
       </View>
     )

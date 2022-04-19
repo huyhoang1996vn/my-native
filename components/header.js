@@ -3,7 +3,7 @@ import { StyleSheet, Text, View} from 'react-native';
 export default function Header() {
     return (
         <View style={styles.header}>
-            <Text>Portfolio</Text>
+            <Text>Steve's App</Text>
         </View>
     )
 }
