@@ -1,4 +1,6 @@
-import { StyleSheet, Text, FlatList, TouchableOpacity  } from 'react-native';
+import { StyleSheet, Text, FlatList, TouchableOpacity, View  } from 'react-native';
+import { AntDesign } from '@expo/vector-icons'; 
+
 
 export default function ListItem(props) {
     return (
@@ -8,8 +10,11 @@ export default function ListItem(props) {
             keyExtractor={(item)=>{return item.id}}
             renderItem={({item})=>{
                 return (
-                    <TouchableOpacity onPress={()=>props.onPress(item.id)} >
-                        <Text style={styles.item}>Name: {item.name} - Age: {item.age}</Text>
+                    <TouchableOpacity  >
+                        <View style={styles.item}>
+                            <AntDesign name="delete" size={14} color="black" onPress={()=>props.onPress(item.id)} />
+                            <Text style={styles.itemText}>Name: {item.name} - Age: {item.age}</Text>
+                        </View>
                     </TouchableOpacity>
                     )
                 }
@@ -30,9 +35,13 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width:'85%',
         alignSelf: 'center',
+        flexDirection: 'row'
     },
     row: {
         marginTop: 25,
+    },
+    itemText: {
+        marginLeft: 12
     }
   
 })
