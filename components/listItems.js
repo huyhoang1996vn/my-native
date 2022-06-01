@@ -2,6 +2,7 @@ import { StyleSheet, Text, FlatList, TouchableOpacity, View  } from 'react-nativ
 import { AntDesign } from '@expo/vector-icons'; 
 
 
+// Refer: https://icons.expo.fyi/
 export default function ListItem(props) {
     return (
             <FlatList style={styles.row}
@@ -12,8 +13,10 @@ export default function ListItem(props) {
                 return (
                     <TouchableOpacity  >
                         <View style={styles.item}>
-                            <AntDesign name="delete" size={14} color="black" onPress={()=>props.onPress(item.id)} />
-                            <Text style={styles.itemText}>Name: {item.name} - Age: {item.age}</Text>
+                            <AntDesign name="pluscircleo" onPress={()=>props.navigateDetail(item)} size={16} color="black" />
+                            <Text style={styles.itemText}  onPress={()=>props.navigateDetail(item)} >Task: {item.name} - Prioty: {item.age}</Text>
+                            <AntDesign name="delete" size={16} color="black" onPress={()=>props.onPress(item.id)} />
+
                         </View>
                     </TouchableOpacity>
                     )
@@ -25,7 +28,7 @@ export default function ListItem(props) {
 
 const styles = StyleSheet.create({
     item: {
-        padding: 14,
+        padding: 16,
         backgroundColor: '#fff',
         borderColor: "gray", 
         borderWidth: 1,
@@ -41,7 +44,8 @@ const styles = StyleSheet.create({
         marginTop: 25,
     },
     itemText: {
-        marginLeft: 12
+        marginLeft: 12,
+        marginRight: 12
     }
   
 })

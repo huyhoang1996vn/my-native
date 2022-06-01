@@ -4,16 +4,16 @@ export default function Additem(props) {
     return (
         <View style={{marginTop: 25, alignItems: 'center'}}>
             <TextInput 
-                style={styles.input} placeholder="Your name ..." onChangeText={(name)=>props.onChangeInput(name, "name")}
+                style={styles.input} placeholder="Your task ..." onChangeText={(name)=>props.onChangeInput(name, "name")}
                 defaultValue={props.user.name} 
             />
             <TextInput 
-                keyboardType='phone-pad' style={styles.input} placeholder="Your age ..." 
+                keyboardType='phone-pad' style={styles.input} placeholder="Prioty ..." 
                 onChangeText={(age)=>props.onChangeInput(age, "age")}
                 defaultValue={props.user.age}
             />
         <View style={{marginTop: 25, alignItems: 'center'}}>
-            <Button  color="coral"  title="Submit" onPress={props.clickHandler}/>
+            <Button  color="coral"  title="Add" onPress={props.clickHandler}/>
         </View>
       </View>
     )
