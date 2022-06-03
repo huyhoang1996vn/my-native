@@ -11,6 +11,11 @@ export default function Detail({ navigation, route }) {
       <View style={styles.container}>
           <Text style={styles.homeScreen}>Your task</Text>
           <Text style={styles.homeScreen}>Task: {route.params.name}, Prioty:{route.params.age} </Text>
+          <Button
+          title="Go to Home"
+          onPress={() =>
+            navigation.navigate('Home')
+          }/>
       </View>
   );
 }

@@ -7,7 +7,7 @@ import About from '../screens/about';
 
 const AboutStack = () => {
   return (
-      <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: 'coral' } }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="About"
           component={About}

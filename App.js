@@ -4,7 +4,7 @@ import Detail from './screens/detail';
 import AppLoading from 'expo-app-loading';
 import React, { useState } from 'react';
 import * as Font from 'expo-font';
-// import AppContainer from './routes/drawer'
+import AppContainer from './routes/drawer'
 import HomeStack from './routes/homeStack'
 
 const useFonts = async () =>
@@ -26,6 +26,6 @@ export default function App() {
     );
   } 
   return (
-       <HomeStack/>
+       <AppContainer/>
   );
 }

@@ -9,12 +9,12 @@ import Home from '../screens/home';
 
 const HomeStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: 'coral' } }}>
+    //<NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home}/>
         <Stack.Screen name="Detail" component={Detail} options={{ headerStyle: { backgroundColor: 'coral' } }} />
       </Stack.Navigator>
-    </NavigationContainer>
+    //</NavigationContainer>
   );
 };
 
