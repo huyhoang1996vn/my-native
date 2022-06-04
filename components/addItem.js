@@ -13,7 +13,7 @@ export default function Additem(props) {
                 defaultValue={props.user.age}
             />
         <View style={{marginTop: 25, alignItems: 'center'}}>
-            <Button  color="coral"  title="Add" onPress={props.clickHandler}/>
+            <Button  color="#5167e8"  title="Add" onPress={props.clickHandler}/>
         </View>
       </View>
     )
