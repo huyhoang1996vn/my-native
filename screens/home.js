@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity,
-  TouchableWithoutFeedback, Keyboard } from 'react-native';
+  TouchableWithoutFeedback, Keyboard, Modal, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import ListItem from '../components/listItems';
 import Additem from '../components/addItem';
-
+import ModalAddItem from '../components/modalAddItem';
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 export default function Home({ navigation }) {
+  const [modalVisible, setModalVisible] = useState(false);
   const [user, setUser] = useState({name: "", age:"", id: 0});
   const [data, setData] =  useState([
     {name: "code", age: 1, id: 1},
@@ -18,9 +21,13 @@ export default function Home({ navigation }) {
     return navigation.navigate('Detail', user); 
   }
 
-  const clickHandler = () =>{
+  const clickHandler = (userArg=null) =>{
     let last_id = Math.max(...data.map(o => o.id));
     let new_user = {...user, id: last_id + 1};
+    if (userArg){
+      new_user = {...userArg, id: last_id + 1};
+    }
+    console.log("=== new_user ", new_user);
     setData([...data, new_user]);
     setUser({name: "", age:"", id: 0});
   }
@@ -46,8 +53,16 @@ export default function Home({ navigation }) {
       <View style={styles.container}>
         {/* <Header/> */}
         <View>
+          <ModalAddItem 
+            setUser={setUser}
+            setModalVisible={setModalVisible} 
+            modalVisible={modalVisible} 
+            onChangeInput={onChangeInput} 
+            clickHandler={clickHandler}
+          />
+          <MaterialIcons style={styles.iconAdd} name="add-box" size={34} color="black" onPress={() => setModalVisible(true)}/>
           <Text style={{textAlign: "center", paddingTop: 20, fontFamily: 'merriweather'}}>Manage task</Text>
-          <Additem user={user} onChangeInput={onChangeInput} clickHandler={clickHandler}/>
+          {/* <Additem user={user} onChangeInput={onChangeInput} clickHandler={clickHandler}/>*/}
           <ListItem data={data} onPress={onPress} navigateDetail={navigateDetail}/>
         </View>
       </View>
@@ -70,4 +85,7 @@ const styles = StyleSheet.create({
     color:'black',
     padding: 20,
   },
+  iconAdd:{
+    textAlign: "center",
+  }
 });
