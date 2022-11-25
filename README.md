@@ -40,4 +40,12 @@ https://snack.expo.dev/
 # Formik
 https://formik.org/docs/guides/react-native
 
+# Loading
+https://reactnative.dev/docs/activityindicator?redirected
+
+# Await function in Effect
+https://ultimatecourses.com/blog/using-async-await-inside-react-use-effect-hook
+
+
+
 
